@@ -1175,12 +1175,12 @@ namespace Pathos
 
       wizard = AddClass(C =>
       {
-        C.Name = "wizard";
-        C.Description = "Powerful sorcerers, lords of arcane knowledge, and vanguards of psychic warfare. They are unrivalled in their mastery of nearly all schools of magic, augmented by a wide array of mystical devices.";
+        C.Name = "ordinary magician";
+        C.Description = "A happy-go-lucky witch, exploring the dephts in hopes of something incredible at the end. ";
         C.Backpack = Items.Backpack;
-        C.LifeAdvancement.Set(10, 1.d6());
-        C.ManaAdvancement.Set(6, 1.d2());
-        C.SetDistribution(Attributes.intelligence, Attributes.dexterity, Attributes.charisma, Attributes.wisdom, Attributes.constitution, Attributes.strength);
+        C.LifeAdvancement.Set(7, 1.d5());
+        C.ManaAdvancement.Set(10, 1.d2());
+        C.SetDistribution(Attributes.wisdom, Attributes.charisma, Attributes.strength, Attributes.dexterity, Attributes.constitution, Attributes.intelligence);
         C.AddAvatar(Genders.male, Glyphs.male_wizard);
         C.AddAvatar(Genders.female, Glyphs.female_wizard);
         C.AddAvatar(Races.elf, Genders.male, Glyphs.elf_male_wizard);
@@ -1200,22 +1200,31 @@ namespace Pathos
         C.AddAvatar(Races.troll, Genders.male, Glyphs.troll_male_wizard);
         C.AddAvatar(Races.satyr, Genders.male, Glyphs.satyr_male_wizard);
         C.AddAvatar(Races.satyr, Genders.female, Glyphs.satyr_female_wizard);
-        C.AddFeat(8, Properties.warning);
+        C.AddFeat(2, Properties.appraisal);
+        C.AddFeat(4, Properties.searching);
+        C.AddFeat(6, Properties.see_invisible);
+        C.AddFeat(8, Properties.blinking);
+        C.AddFeat(10, Properties.clarity);
+        C.AddFeat(12, Properties.searching);
         C.AddFeat(14, Properties.teleport_control);
+        C.AddFeat(16, Properties.free_action);
+        C.AddFeat(18, Properties.reflection);
+        C.AddFeat(20, Properties.clairvoyance);
+        C.AddFeat(25, Properties.mana_regeneration);
+        C.AddFeat(30, Properties.lifesaving);
         C.Startup.SetSkill(Qualifications.proficient,
-          Skills.bartering, Skills.crafting, Skills.literacy,
-          Skills.abjuration, Skills.divination, Skills.enchantment, Skills.evocation, Skills.necromancy, Skills.transmutation,
+          Skills.bartering, Skills.crafting, Skills.literacy, Skills.locks, Skills.traps,
+          Skills.abjuration, Skills.divination, Skills.enchantment, Skills.evocation, Skills.transmutation,
           Skills.light_armour,
           Skills.light_blade,
-          Skills.club, Skills.dart, Skills.sling, Skills.staff);
+          Skills.club, Skills.sling, Skills.staff, Skills.unarmed_combat, Skills.crossbow, Skills.disc);
         C.Startup.AddGrimoire(Dice.One, Spells.force_bolt);
         C.Startup.AddGrimoire(Dice.One, DesireableSpellArray(C));
         C.Startup.Loot.AddKit(Chance.Always, Sanctities.Blessed, Modifier.Plus1, Items.quarterstaff);
         C.Startup.Loot.AddKit(Chance.Always, Modifier.Plus0, Items.cloak_of_magic_resistance);
         C.Startup.Loot.AddKit(Chance.Always, DesirableItemArray(C, Stocks.wand));
-        C.Startup.Loot.AddKit(Dice.Fixed(2), Chance.Always, DesirableItemArray(C, Stocks.ring));
-        C.Startup.Loot.AddKit(Dice.Fixed(3), Chance.Always, DesirableItemArray(C, Stocks.potion));
-        C.Startup.Loot.AddKit(Dice.Fixed(3), Chance.Always, DesirableItemArray(C, Stocks.scroll));
+        C.Startup.Loot.AddKit(Dice.Fixed(4), Chance.Always, DesirableItemArray(C, Stocks.potion));
+        C.Startup.Loot.AddKit(Dice.Fixed(6), Chance.Always, DesirableItemArray(C, Stocks.book));
         C.Startup.Loot.AddKit(Chance.OneIn5, Items.magic_marker);
         C.Startup.Loot.AddKit(Chance.OneIn5, Items.blindfold);
       });

@@ -1470,9 +1470,9 @@ namespace Pathos
         );
       });
 
-      force_bolt = AddSpell(Schools.evocation, "force bolt", 1, new Precept(Purpose.Blast, Elements.force), Glyphs.force_bolt_spell, Z =>
+      force_bolt = AddSpell(Schools.evocation, "Milky Way", 1, new Precept(Purpose.Blast, Elements.force), Glyphs.force_bolt_spell, Z =>
       {
-        Z.Description = "Projects a ball of energy that impacts on both monsters and objects.";
+        Z.Description = "A magical milky way, Orihime repels Hikoboshi with stardust. Go, Hikoboshi! Its power has a destructive effect";
         SetAdept
         (
           Z,
